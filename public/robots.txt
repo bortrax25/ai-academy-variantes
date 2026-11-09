@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bortrax25.github.io/ai-academy-web/sitemap-index.xml

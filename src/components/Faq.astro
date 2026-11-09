@@ -1,0 +1,15 @@
+---
+import { enlazar } from '../lib/ruta.js';
+const { lang, titulo, items, id = 'faq' } = Astro.props;
+---
+<section class="faq seccion" id={id} aria-labelledby={`${id}-t`}>
+  <h2 class="h2" id={`${id}-t`} data-reveal>{titulo}</h2>
+  <div data-reveal>
+    {items.map((it) => (
+      <details>
+        <summary>{it.p}<i aria-hidden="true"></i></summary>
+        <div set:html={enlazar(it.r, lang)} />
+      </details>
+    ))}
+  </div>
+</section>

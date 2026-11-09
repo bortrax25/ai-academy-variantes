@@ -1,0 +1,48 @@
+/* Tema 18-rankai — Lavanda suave: violeta discreto, todo centrado, píldoras. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/inter';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'Instrument Serif', Georgia, serif; --font-serif: 'Instrument Serif', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#ffffff, #0e0c18);
+  --paper-2: light-dark(#f7f6fb, #171425);
+  --ink: light-dark(#15131f, #ecebf4);
+  --ink-2: light-dark(#6b6880, #a8a5bd);
+  --accent: #5b3fd6;
+  --on-accent: #fff;
+  --accent-ink: light-dark(#5b3fd6, #a996ff);
+  --night: light-dark(#3b25a0, #1d1450);
+  --marca: light-dark(#5b3fd6, #7a60f0);
+  --marca-sobre: #fff;
+  --marca-suave: light-dark(#eceaf3, #221c40);
+  --marca-ink: light-dark(#2a1a7a, #e4defd);
+  --btn-top: light-dark(#6c50e6, #7a60f0);
+  --btn-bottom: light-dark(#4a30c4, #5b3fd6);
+  --btn-ink: #fff;
+  --hair: light-dark(color-mix(in srgb, #15131f 14%, transparent), color-mix(in srgb, #ecebf4 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#f7f6fb, #221c40);
+  --demo-wall-2: light-dark(#d9d0ff, #16122b);
+  --demo-wall-3: light-dark(#8b78e8, #08070f);
+  --peso-titulo: 700;
+  --tracking-titulo: -0.035em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --em-color: var(--accent-ink);
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 4px 18px #5b3fd614, 0 14px 40px #5b3fd61c;
+  --radio-tarjeta: 22px;
+  --btn-borde: 0;
+  --btn-sombra: 0 8px 24px -8px #5b3fd6aa;
+  --btn-sombra-hover: 0 12px 30px -8px #5b3fd6cc;
+  --cifra-color: #cfc4ff;
+  --closer-sombra: 0 24px 60px -24px #5b3fd6aa;
+  --destacado: #d9d0ff;
+  --fondo-pagina: linear-gradient(180deg, light-dark(#f2f0fb, #171330), transparent);
+  --fondo-tamano: 100% 800px;
+  --fondo-repetir: no-repeat;
+  --fondo-tarjeta: light-dark(#fff, #141122);
+}

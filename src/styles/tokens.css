@@ -1,0 +1,61 @@
+/* ───────── Tokens. Cambia valores, no nombres. Ver references/sistema-diseno.md ─────────
+   Cada color se escribe UNA vez: light-dark(<claro>, <oscuro>).
+   El tema lo decide color-scheme: sistema por defecto, o data-theme="light|dark" en <html>. */
+:root {
+  color-scheme: light dark;
+
+  --paper: light-dark(#f5f2e9, #0b1230);
+  --paper-2: light-dark(#e4e8f6, #141d45);
+  --ink: light-dark(#14286f, #e8ecff);
+  --ink-2: light-dark(#44538a, #a9b4dd);
+  --hair: light-dark(#14286f26, #e8ecff26);
+  --accent: #f1e35a; /* amarillo del molde: siempre como relleno, nunca como texto */
+  --accent-ink: light-dark(#1740c8, #f1e35a); /* acento para texto: cobalto en claro, amarillo en oscuro */
+  --on-accent: #14286f;
+  --night: #1740c8; /* el cobalto del molde: banda de cifras y cierre */
+  --night-ink: #f4f6ff;
+
+  /* botón primario: tinta en claro, crema en oscuro */
+  --btn-top: light-dark(#2a55e2, #f6ea78);
+  --btn-bottom: light-dark(#1438b8, #e4d340);
+  --btn-ink: light-dark(#ffffff, #14286f);
+
+  --shadow-1: 0 1px 2px light-dark(#1614121f, #0006);
+  --shadow-2: 0 10px 30px -14px light-dark(#16141240, #000a);
+  --shadow-win: 0 34px 70px -24px light-dark(#0e1f6b66, #000000b3), 0 0 0 0.5px light-dark(#0000002e, #ffffff1f);
+
+  --font-sans: 'Inter Tight Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --font-demo: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-hover: 0.25s;
+  --d-reveal: 0.9s;
+
+  --gutter: clamp(16px, 4vw, 40px);
+  --ancho: 1120px;
+  --seccion: clamp(80px, 16svh, 180px);
+  --radio-banda: 14px;
+  --radio-tarjeta: 10px;
+  --sombra-dura: 6px 6px 0 light-dark(#14286f, #f1e35a); /* firma del molde */
+  --mask-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cmask id='m'%3E%3Crect width='16' height='16' fill='white'/%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/mask%3E%3Ccircle cx='8' cy='8' r='8' fill='white' mask='url(%23m)'/%3E%3C/svg%3E");
+
+  /* demo: imita un sistema operativo (no usa la paleta de marca) */
+  --demo-bar: light-dark(#f6f3ee9e, #1e1c1a8c);
+  --demo-bar-ink: light-dark(#1d1b19, #f2eee8);
+  --demo-win: light-dark(#fff, #232120);
+  --demo-win-2: light-dark(#f6f5f3, #1c1b1a);
+  --demo-chrome: light-dark(#ecebe8, #2c2a28);
+  --demo-line: light-dark(#00000017, #ffffff14);
+  --demo-ink: light-dark(#1d1d1f, #f2f0ed);
+  --demo-ink-2: light-dark(#6e6e73, #a19c96);
+  --demo-panel: light-dark(#faf9f7db, #201e1cdb);
+  --demo-card: light-dark(#0000000b, #ffffff0f);
+  --demo-wall-1: light-dark(#d4ddf3, #1d2a66);
+  --demo-wall-2: light-dark(#aebfe6, #132054);
+  --demo-wall-3: light-dark(#7d93cf, #070c24);
+}
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }

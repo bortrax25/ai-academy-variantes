@@ -1,0 +1,8 @@
+---
+// Terminal oscura. Cada línea: <div class="tl">…</div>. Clases de color: .pr .ok .ac .dim
+import Ventana from './Ventana.astro';
+const { clase = '', titulo = '~/proyecto' } = Astro.props;
+---
+<Ventana clase={clase} titulo={titulo} plana oscura>
+  <div class="term"><slot /></div>
+</Ventana>

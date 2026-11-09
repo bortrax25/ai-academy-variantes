@@ -1,0 +1,46 @@
+/* Tema 32-salient — Beige editorial: monocromo, titulares ligeros y subrayados, sin sombras. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/nunito-sans';
+@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/newsreader/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'Newsreader Variable', Georgia, serif; --font-serif: 'Newsreader Variable', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#f6f3ec, #121210);
+  --paper-2: light-dark(#ece8dd, #1c1b18);
+  --ink: light-dark(#141414, #eeebe3);
+  --ink-2: light-dark(#555555, #a6a29a);
+  --accent: light-dark(#d9d5c9, #3a3833);
+  --on-accent: light-dark(#141414, #eeebe3);
+  --accent-ink: light-dark(#141414, #eeebe3);
+  --night: light-dark(#141414, #000000);
+  --marca: light-dark(#141414, #eeebe3);
+  --marca-sobre: light-dark(#fff, #141414);
+  --marca-suave: light-dark(#ece8dd, #26241f);
+  --marca-ink: light-dark(#141414, #eeebe3);
+  --btn-top: light-dark(#2a2a2a, #f6f3ec);
+  --btn-bottom: light-dark(#141414, #d9d5c9);
+  --btn-ink: light-dark(#fff, #141414);
+  --hair: light-dark(color-mix(in srgb, #141414 14%, transparent), color-mix(in srgb, #eeebe3 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#ece8dd, #2a2925);
+  --demo-wall-2: light-dark(#d3cebf, #1c1b18);
+  --demo-wall-3: light-dark(#9b968a, #0b0b0a);
+  --peso-titulo: 500;
+  --tracking-titulo: -0.035em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 700;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 700;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: none;
+  --radio-tarjeta: 22px;
+  --btn-borde: 1px solid var(--ink);
+  --btn-sombra: none;
+  --btn-sombra-hover: none;
+  --cifra-color: #f6f3ec;
+  --closer-sombra: none;
+  --destacado: light-dark(#d9d5c9, #3a3833);
+  --numero-color: var(--ink);
+  --fondo-tarjeta: light-dark(#fbf9f4, #181816);
+}
+.h1 em, .h2 em { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .14em; }

@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import { textos } from '../lib/textos.js';
+import { rutaIdioma } from '../lib/ruta.js';
+const { lang } = Astro.props;
+const n = textos(lang).noEncontrado;
+---
+<Base lang={lang} meta={n.meta} camino="/404" sinIndice>
+  <section class="final" style="min-height:92svh">
+    <Logo />
+    <h1 class="frase" set:html={n.titulo} />
+    <p class="texto">{n.texto}</p>
+    <a class="btn primary" href={rutaIdioma(lang, '/')}>{n.boton}</a>
+  </section>
+</Base>

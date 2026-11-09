@@ -1,0 +1,2 @@
+/* Las fuentes las carga cada tema (src/temas/<id>/tema.css). Aquí solo la mono por defecto. */
+@import '@fontsource-variable/jetbrains-mono';

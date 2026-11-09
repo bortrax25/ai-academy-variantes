@@ -1,0 +1,46 @@
+/* Tema 00-fuse — Editorial verde: serif tranquila, mucho aire, cifras grandes. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/newsreader/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Newsreader Variable', Georgia, serif; --em-familia: 'Newsreader Variable', Georgia, serif; --font-serif: 'Newsreader Variable', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#fbfaf8, #0f1714);
+  --paper-2: light-dark(#efede8, #17221e);
+  --ink: light-dark(#15151a, #eceee9);
+  --ink-2: light-dark(#55565c, #a3aaa5);
+  --accent: light-dark(#cfe7dd, #2f6f5e);
+  --on-accent: light-dark(#10231f, #eceee9);
+  --accent-ink: light-dark(#2f6f5e, #7cc7b0);
+  --night: light-dark(#10231f, #0a1512);
+  --marca: light-dark(#2f6f5e, #7cc7b0);
+  --marca-sobre: light-dark(#fff, #0f1714);
+  --marca-suave: light-dark(#e3efe9, #1d2d27);
+  --marca-ink: light-dark(#10231f, #d6eee5);
+  --btn-top: light-dark(#1d3a33, #e9efe9);
+  --btn-bottom: light-dark(#10231f, #cfdcd5);
+  --btn-ink: light-dark(#fff, #10231f);
+  --hair: light-dark(color-mix(in srgb, #15151a 14%, transparent), color-mix(in srgb, #eceee9 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#e6f0f2, #1b2a2e);
+  --demo-wall-2: light-dark(#cfe1e6, #121d20);
+  --demo-wall-3: light-dark(#9fbcc4, #07100f);
+  --peso-titulo: 500;
+  --tracking-titulo: -0.02em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 700;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 700;
+  --logo-tracking: -0.04em;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 20px 60px -30px rgba(40,70,80,.35);
+  --radio-tarjeta: 8px;
+  --radio-btn: 6px;
+  --btn-borde: 0;
+  --btn-sombra: 0 1px 2px #0002;
+  --btn-sombra-hover: 0 6px 18px -6px #0004;
+  --cifra-color: #cfe7dd;
+  --closer-sombra: none;
+  --destacado: #cfe7dd;
+  --fondo-tarjeta: light-dark(#fff, #14201c);
+}

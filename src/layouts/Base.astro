@@ -1,0 +1,82 @@
+---
+// Esqueleto de todas las páginas: <head> completo (SEO, OG, hreflang, tema sin parpadeo),
+// navegación, pie, toast, aviso de idioma y scripts compartidos.
+import '../styles/sitio.css';
+import '@tema/tema.css';
+import Nav from '../components/Nav.astro';
+import Pie from '../components/Pie.astro';
+import { sitio } from '../sitio.js';
+import { tema } from '@tema/tema.js';
+import { textos } from '../lib/textos.js';
+import { ruta, rutaIdioma, absoluta } from '../lib/ruta.js';
+
+interface Props { lang?: string; meta?: { titulo: string; descripcion: string }; camino?: string; sinIndice?: boolean }
+const { lang = sitio.idiomas[0], meta, camino = '/', sinIndice = false } = Astro.props;
+const t = textos(lang);
+const titulo = meta?.titulo ?? t.meta.titulo;
+const descripcion = meta?.descripcion ?? t.meta.descripcion;
+const url = absoluta(rutaIdioma(lang, camino));
+const og = absoluta(ruta('/og.png'));
+const otros = sitio.idiomas.filter((l) => l !== lang);
+const otro = otros[0] && textos(otros[0]);
+const textosJs = { nombre: sitio.nombre, form: t.form, toasts: t.toasts, consola: t.consola, tema: sitio.tema };
+---
+<!doctype html>
+<html lang={lang} data-heroe={tema.heroe}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="theme-color" content={sitio.tema.claro} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={sitio.tema.oscuro} media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('is-static');
+      try {
+        const t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('tema');
+        if (t && t !== 'system') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+    <link rel="icon" href={ruta('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={ruta('/apple-touch-icon.png')} />
+    <link rel="manifest" href={ruta('/site.webmanifest')} />
+    <link rel="canonical" href={url} />
+    {sitio.idiomas.length > 1 && sitio.idiomas.map((l) => (
+      <link rel="alternate" hreflang={l} href={absoluta(rutaIdioma(l, camino))} />
+    ))}
+    {sitio.idiomas.length > 1 && <link rel="alternate" hreflang="x-default" href={absoluta(rutaIdioma(sitio.idiomas[0], camino))} />}
+    {sinIndice && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={sitio.nombre} />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={og} />
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">{t.nav.saltar}</a>
+    <Nav lang={lang} camino={camino} />
+    <main id="contenido"><slot /></main>
+    <Pie lang={lang} camino={camino} />
+    <div class="toast" role="status" aria-live="polite"></div>
+    {otro && (
+      <div class="aviso-idioma" data-lang={otros[0]} hidden>
+        <span>{otro.avisoIdioma.texto}</span>
+        <a href={rutaIdioma(otros[0], camino)} hreflang={otros[0]}>{otro.avisoIdioma.boton}</a>
+        <button type="button" aria-label={otro.avisoIdioma.cerrar}>×</button>
+      </div>
+    )}
+    <script type="application/json" id="textos-js" set:html={JSON.stringify(textosJs)} />
+    <script>
+      import '../scripts/motion.js';
+      import '../scripts/ui.js';
+    </script>
+    <slot name="scripts" />
+  </body>
+</html>

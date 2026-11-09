@@ -1,0 +1,49 @@
+/* Tema 11-revnu — Mascota verde y letra manuscrita: redondo, alegre, sin dolor. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/nunito';
+@import '@fontsource-variable/caveat';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Nunito Variable', ui-rounded, system-ui, sans-serif; --font-titulo: 'Nunito Variable', ui-rounded, system-ui, sans-serif; --em-familia: 'Caveat Variable', cursive; --font-serif: 'Caveat Variable', cursive; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#f8f4ec, #10170f);
+  --paper-2: light-dark(#efe8d8, #182117);
+  --ink: light-dark(#18241b, #e9efe4);
+  --ink-2: light-dark(#4d5a4f, #a5b2a3);
+  --accent: #8be0a0;
+  --on-accent: #0e2414;
+  --accent-ink: light-dark(#2f7a3f, #8be0a0);
+  --night: light-dark(#18241b, #0a0f09);
+  --marca: light-dark(#3f8f4e, #6ccf85);
+  --marca-sobre: light-dark(#fff, #0e2414);
+  --marca-suave: light-dark(#dff3e3, #1d3320);
+  --marca-ink: light-dark(#133d1d, #dff3e3);
+  --btn-top: light-dark(#3f8f4e, #9be8ae);
+  --btn-bottom: light-dark(#2f7a3f, #6ccf85);
+  --btn-ink: light-dark(#fff, #0e2414);
+  --hair: light-dark(color-mix(in srgb, #18241b 14%, transparent), color-mix(in srgb, #e9efe4 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#cfeccf, #1d2b1c);
+  --demo-wall-2: light-dark(#8be0a0, #132012);
+  --demo-wall-3: light-dark(#3f8f4e, #080d07);
+  --peso-titulo: 900;
+  --tracking-titulo: -0.035em;
+  --em-peso: 700;
+  --em-estilo: normal;
+  --em-color: light-dark(#c94a12, #ff8a55);
+  --logo-familia: var(--font-sans);
+  --logo-peso: 900;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 900;
+  --glifo-color: #ff6a2b;
+  --borde: 2px solid var(--ink);
+  --sombra-tarjeta: 0 12px 30px rgba(0,0,0,.12);
+  --radio-tarjeta: 16px;
+  --btn-borde: 0;
+  --btn-sombra: 0 2px 8px rgba(0,0,0,.12);
+  --btn-sombra-hover: 0 8px 20px rgba(0,0,0,.18);
+  --cifra-color: #8be0a0;
+  --closer-fondo: #2f7a3f;
+  --closer-sombra: none;
+  --destacado: #fde68a;
+  --fondo-tarjeta: light-dark(#fffdf7, #141c13);
+}
+em { font-size: 1.25em; }

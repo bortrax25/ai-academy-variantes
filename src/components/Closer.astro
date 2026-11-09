@@ -1,0 +1,10 @@
+---
+import { rutaIdioma } from '../lib/ruta.js';
+const { lang, titulo, cta } = Astro.props;
+---
+<section class="contenedor" data-reveal>
+  <div class="closer">
+    <h2 set:html={titulo} />
+    <a class="btn claro" href={rutaIdioma(lang, cta.href)}>{cta.texto}</a>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+/* Tema 22-stormy-ai — Gris técnico: monocromo, etiquetas en mono, nada sobra. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'JetBrains Mono Variable', ui-monospace, monospace; --font-serif: 'JetBrains Mono Variable', ui-monospace, monospace; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#efefee, #111111);
+  --paper-2: light-dark(#e4e4e2, #1a1a1a);
+  --ink: light-dark(#151515, #ededed);
+  --ink-2: light-dark(#555555, #a0a0a0);
+  --accent: light-dark(#d4d4d0, #3a3a3a);
+  --on-accent: light-dark(#151515, #ededed);
+  --accent-ink: light-dark(#151515, #ededed);
+  --night: light-dark(#151515, #000000);
+  --marca: light-dark(#151515, #ededed);
+  --marca-sobre: light-dark(#fff, #111);
+  --marca-suave: light-dark(#e4e4e2, #242424);
+  --marca-ink: light-dark(#151515, #ededed);
+  --btn-top: light-dark(#2b2b2b, #f5f5f4);
+  --btn-bottom: light-dark(#111111, #dcdcda);
+  --btn-ink: light-dark(#fff, #111);
+  --hair: light-dark(color-mix(in srgb, #151515 14%, transparent), color-mix(in srgb, #ededed 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#f5f5f4, #2a2a2a);
+  --demo-wall-2: light-dark(#dcdcda, #1a1a1a);
+  --demo-wall-3: light-dark(#a8a8a4, #0a0a0a);
+  --peso-titulo: 700;
+  --tracking-titulo: -0.045em;
+  --em-estilo: normal;
+  --em-peso: 400;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 2px 0 #0000000d, 0 12px 30px #0000000a;
+  --radio-tarjeta: 14px;
+  --btn-borde: 0;
+  --btn-sombra: 0 16px 50px -20px #0005;
+  --btn-sombra-hover: 0 18px 50px -16px #0006;
+  --cifra-color: #ffffff;
+  --closer-sombra: none;
+  --destacado: light-dark(#d4d4d0, #3a3a3a);
+  --fondo-tarjeta: light-dark(#fff, #181818);
+}
+.h1 em, .h2 em, .frase em, .leyenda em, .closer em { font-size: 0.86em; letter-spacing: -0.04em; }

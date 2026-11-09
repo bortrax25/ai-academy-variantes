@@ -1,0 +1,80 @@
+/* ───────── Piezas de la demo (imitan un sistema operativo) ───────── */
+.demo {
+  position: absolute; z-index: 3; left: 0; right: 0; top: 23svh; margin: 0 auto;
+  width: min(1240px, 92vw); height: 73svh; border-radius: 14px; overflow: hidden;
+  font-family: var(--font-demo); color: var(--demo-ink); font-size: 13px; line-height: 1.4;
+  box-shadow: var(--shadow-win);
+}
+.is-static .demo, .demo.estatica { height: min(73svh, 720px); }
+.fondo {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 75% 70%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(120% 90% at 20% 10%, var(--demo-wall-1) 0%, var(--demo-wall-2) 45%, var(--demo-wall-3) 100%);
+}
+.menubar {
+  position: absolute; inset: 0 0 auto; z-index: 30; height: 26px; padding: 0 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--demo-bar); color: var(--demo-bar-ink); backdrop-filter: blur(30px) saturate(1.6); -webkit-backdrop-filter: blur(30px) saturate(1.6);
+  font-size: 12px;
+}
+.menubar .izq, .menubar .der { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
+.menubar .app { font-weight: 700; }
+.menubar .menus { opacity: 0.85; word-spacing: 6px; }
+.dock {
+  position: absolute; left: 50%; bottom: 8px; z-index: 30; translate: -50% 0;
+  display: flex; gap: 6px; padding: 5px; border-radius: 16px;
+  background: color-mix(in srgb, var(--demo-win) 45%, transparent); border: 0.5px solid var(--demo-line);
+  backdrop-filter: blur(24px) saturate(1.6); -webkit-backdrop-filter: blur(24px) saturate(1.6);
+}
+.dock .icono { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; font-size: 18px; background: var(--demo-win); box-shadow: 0 1px 2px #0003; }
+
+/* Ventana */
+.win {
+  position: absolute; z-index: 10; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--demo-win); border-radius: 12px; box-shadow: var(--shadow-win);
+}
+.win .chrome { flex: none; height: 34px; display: flex; align-items: center; gap: 10px; padding: 0 12px; background: var(--demo-chrome); border-bottom: 0.5px solid var(--demo-line); }
+.win .chrome.plana { background: var(--demo-win); }
+.luces { display: flex; gap: 6px; }
+.luces i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.luces i:nth-child(2) { background: #febc2e; } .luces i:nth-child(3) { background: #28c840; }
+.win .titulo { flex: 1; text-align: center; font-size: 12px; color: var(--demo-ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.win .url { flex: 1; max-width: 420px; margin-inline: auto; height: 22px; padding: 0 10px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 11.5px; color: var(--demo-ink-2); background: var(--demo-win-2); white-space: nowrap; overflow: hidden; }
+.win .cuerpo { flex: 1; min-height: 0; overflow: hidden; position: relative; }
+.win.oscura { --demo-win: #1c1b1a; --demo-chrome: #1c1b1a; --demo-ink: #e8e6e3; --demo-ink-2: #8d8983; --demo-line: #ffffff14; color: var(--demo-ink); }
+
+/* Terminal */
+.term { padding: 14px 16px; font: 400 12.5px/1.65 var(--font-mono); color: #e8e6e3; }
+.term .tl { white-space: pre-wrap; }
+.term .pr { color: #8ab4ff; } .term .ok { color: #5fd38d; } .term .ac { color: var(--accent); } .term .dim { color: #8d8983; }
+.js .term .tl.oculta { opacity: 0; }
+
+/* Panel del producto (tipo spotlight / resultados) */
+.panel {
+  position: absolute; z-index: 20; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--demo-panel); border-radius: 14px; border: 0.5px solid var(--demo-line); box-shadow: var(--shadow-win);
+  backdrop-filter: blur(40px) saturate(1.6); -webkit-backdrop-filter: blur(40px) saturate(1.6);
+}
+.panel .busca { flex: none; display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-bottom: 0.5px solid var(--demo-line); color: var(--demo-ink-2); }
+.panel .busca .q { color: var(--demo-ink); }
+.caret { display: inline-block; width: 1.5px; height: 15px; background: var(--accent); animation: caret 1s steps(1) infinite; vertical-align: -2px; }
+@keyframes caret { 50% { opacity: 0; } }
+.panel .seccion-p { padding: 10px 14px 4px; font-size: 11px; font-weight: 600; color: var(--demo-ink-2); }
+.panel .tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 6px 12px 12px; align-content: start; overflow: hidden; flex: 1; }
+.panel .t { min-height: 64px; border-radius: 10px; padding: 9px 10px; background: var(--demo-card); outline: 1.5px solid transparent; outline-offset: -1.5px; display: grid; gap: 4px; align-content: start; }
+.panel .t b { font-size: 11.5px; } .panel .t small { font-size: 10.5px; color: var(--demo-ink-2); }
+.panel .t.alerta { outline-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.panel .pie-p { flex: none; height: 30px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--demo-ink-2); border-top: 0.5px solid var(--demo-line); }
+
+/* Teléfono */
+.telefono { position: absolute; z-index: 10; aspect-ratio: 9 / 19.5; border-radius: 42px; padding: 10px; background: #111; box-shadow: var(--shadow-win), inset 0 0 0 2px #333; }
+.telefono .pantalla { position: relative; height: 100%; border-radius: 33px; overflow: hidden; background: var(--demo-win); }
+.telefono .isla { position: absolute; top: 9px; left: 50%; translate: -50% 0; width: 30%; height: 22px; border-radius: 999px; background: #000; z-index: 2; }
+
+@media (width <= 700px) {
+  .demo { width: 94vw; height: 66svh; top: 30svh; }
+  .menubar .menus, .menubar .reloj { display: none; }
+  .dock .icono { width: 28px; height: 28px; font-size: 15px; }
+  .panel .tarjetas { grid-template-columns: 1fr; }
+}

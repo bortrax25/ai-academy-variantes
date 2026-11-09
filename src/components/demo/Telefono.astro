@@ -1,0 +1,7 @@
+---
+// Marco de teléfono. Tamaño/posición con una clase propia (p. ej. .tel { right: 8%; top: 8%; height: 84%; }).
+const { clase = '' } = Astro.props;
+---
+<div class={`telefono ${clase}`}>
+  <div class="pantalla"><span class="isla"></span><slot /></div>
+</div>

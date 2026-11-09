@@ -1,0 +1,12 @@
+---
+// Ventana macOS. Posición y tamaño: con una clase propia en CSS (p. ej. .w-editor { left: 6%; top: 9%; width: 54%; height: 78% }).
+const { clase = '', titulo = '', url = '', plana = false, oscura = false } = Astro.props;
+---
+<article class={`win ${clase} ${oscura ? 'oscura' : ''}`}>
+  <div class={`chrome ${plana ? 'plana' : ''}`}>
+    <span class="luces"><i></i><i></i><i></i></span>
+    {url ? <span class="url">{url}</span> : <span class="titulo">{titulo}</span>}
+    <span style="width:45px"></span>
+  </div>
+  <div class="cuerpo"><slot /></div>
+</article>

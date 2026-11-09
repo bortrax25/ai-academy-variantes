@@ -1,0 +1,17 @@
+---
+// Historia fijada al scroll: héroe + leyendas por capítulo + demo. La coreografía va en src/scripts/inicio.js.
+// largo ≈ 180–220svh por capítulo + ~150svh de intro.
+import { enlazar } from '../lib/ruta.js';
+const { lang, capitulos = [], largo = '900svh', id = 'historia' } = Astro.props;
+---
+<section class="historia" id={id} style={`--largo:${largo}`}>
+  <div class="escenario">
+    <slot name="heroe" />
+    <div class="leyendas">
+      {capitulos.map((c) => (
+        <p class="leyenda"><span>{c.etiqueta}</span><Fragment set:html={enlazar(c.html, lang)} /></p>
+      ))}
+    </div>
+    <slot />
+  </div>
+</section>

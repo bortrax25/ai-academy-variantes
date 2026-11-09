@@ -1,0 +1,47 @@
+/* Tema 23-uplane — Azul eléctrico a rojo: degradado intenso, esquinas casi rectas. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/inter';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'Instrument Serif', Georgia, serif; --font-serif: 'Instrument Serif', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#ffffff, #070a22);
+  --paper-2: light-dark(#f2f3fa, #0f1335);
+  --ink: light-dark(#0b0f2a, #e9ebfb);
+  --ink-2: light-dark(#555a78, #a5a9c8);
+  --accent: light-dark(#ef3d3d, #ff5a5a);
+  --on-accent: #0b0f2a;
+  --accent-ink: light-dark(#1b2dd8, #8f9bff);
+  --night: #1b2dd8;
+  --marca: light-dark(#1b2dd8, #3a4bff);
+  --marca-sobre: #fff;
+  --marca-suave: light-dark(#e3e6fd, #151a4a);
+  --marca-ink: light-dark(#0b0f2a, #e3e6fd);
+  --btn-top: #3a4bff;
+  --btn-bottom: #1b2dd8;
+  --btn-ink: #fff;
+  --hair: light-dark(color-mix(in srgb, #0b0f2a 14%, transparent), color-mix(in srgb, #e9ebfb 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#3a4bff, #1b2dd8);
+  --demo-wall-2: light-dark(#1b2dd8, #10197a);
+  --demo-wall-3: light-dark(#ef3d3d, #5a1220);
+  --peso-titulo: 700;
+  --tracking-titulo: -0.04em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: none;
+  --radio-tarjeta: 6px;
+  --radio-btn: 6px;
+  --btn-borde: 0;
+  --btn-sombra: none;
+  --btn-sombra-hover: 0 8px 20px -8px #1b2dd8;
+  --banda-fondo: linear-gradient(180deg, #2438f0, #1b2dd8 55%, #b8233a);
+  --cifra-color: #f6c6b8;
+  --closer-fondo: linear-gradient(100deg, #1b2dd8, #b8233a);
+  --closer-sombra: none;
+  --destacado: #f6c6b8;
+  --fondo-tarjeta: light-dark(#fff, #0c1030);
+}

@@ -1,0 +1,136 @@
+---
+// HOME de AI Academy: el curso en miniatura (demo por scroll) + cifras + temario + por qué + FAQ.
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import Historia from '../components/Historia.astro';
+import Faq from '../components/Faq.astro';
+import Escritorio from '../components/demo/Escritorio.astro';
+import Ventana from '../components/demo/Ventana.astro';
+import { textos } from '../lib/textos.js';
+import { rutaIdioma, ruta, enlazar } from '../lib/ruta.js';
+import '../styles/inicio.css';
+const { lang } = Astro.props;
+const t = textos(lang);
+const dock = [
+  { clase: 'd-clase', icono: '🎥', nombre: 'Clase en vivo' },
+  { clase: 'd-flujo', icono: '⚙️', nombre: 'Flujos' },
+  { clase: 'd-hoja', icono: '📊', nombre: 'Hoja de cálculo' },
+];
+const mods = t.temario.modulos;
+---
+<Base lang={lang} camino="/">
+  <Historia lang={lang} capitulos={t.capitulos} largo="960svh">
+    <div class="heroe" slot="heroe">
+      <h1><Logo /></h1>
+      <p class="frase"><Fragment set:html={t.heroe.linea1} /><br /><Fragment set:html={t.heroe.linea2} /></p>
+      <div class="acciones">
+        <a class="btn primary" href={rutaIdioma(lang, t.heroe.cta.href)}>{t.heroe.cta.texto}</a>
+        <a class="btn ghost" href={rutaIdioma(lang, t.heroe.secundario.href)}>{t.heroe.secundario.texto}</a>
+      </div>
+      <p class="nota"><span class="dot"></span><span set:html={t.heroe.nota} /></p>
+    </div>
+
+    <Escritorio app="Clase en vivo" menus="Archivo  Edición  Ver  Ventana" dock={dock}>
+      <Ventana clase="w-clase" url="Clase 2 · Prompting avanzado · en vivo">
+        <div class="llamada">
+          <div class="pantalla">
+            <p class="msg yo p-vaga">Hazme un informe de ventas.</p>
+            <p class="msg ia r-vaga">Claro. Un informe de ventas suele incluir un resumen, las cifras principales y algunas conclusiones generales…</p>
+            <p class="msg yo p-buena"><b>Rol:</b> analista comercial. <b>Contexto:</b> ventas de octubre por tienda. <b>Tarea:</b> compáralas con septiembre. <b>Formato:</b> tabla y tres conclusiones.</p>
+            <div class="msg ia r-tabla">
+              <table>
+                <tr><th>Tienda</th><th>Octubre</th><th>vs. sep.</th></tr>
+                <tr><td>Miraflores</td><td>S/ 48 200</td><td class="sube">+12 %</td></tr>
+                <tr><td>San Isidro</td><td>S/ 39 900</td><td class="baja">−4 %</td></tr>
+                <tr><td>Surco</td><td>S/ 31 500</td><td class="sube">+7 %</td></tr>
+              </table>
+              <span>1. Miraflores lidera por las ventas del fin de semana…</span>
+            </div>
+          </div>
+          <div class="caras">
+            <span class="cara profe"><i>MQ</i><small>Profe</small></span>
+            <span class="cara"><i>AR</i><small>Ana</small></span>
+            <span class="cara"><i>LP</i><small>Luis</small></span>
+            <span class="cara tu"><i>Tú</i><small>Tú</small></span>
+          </div>
+        </div>
+      </Ventana>
+
+      <aside class="curso">
+        <header><b>Tu curso</b><small>2 semanas · 6 clases</small></header>
+        {mods.map((m, i) => (
+          <>
+            {(i === 0 || i === 3) && <span class="sem">{m[2]}</span>}
+            <div class={`fila m${i + 1}`}><span class="n">0{i + 1}</span><span class="tt">{m[0]}</span><span class="ok" aria-hidden="true">✓</span></div>
+          </>
+        ))}
+        <footer><span class="cuenta">6 de 6 clases</span></footer>
+      </aside>
+
+      <Ventana clase="w-flujo" titulo="Flujo · informe semanal">
+        <div class="flujo">
+          <div class="nodos">
+            <span class="nodo">📧<b>Correo de ventas</b></span><span class="flecha">→</span>
+            <span class="nodo">✨<b>La IA resume</b></span><span class="flecha">→</span>
+            <span class="nodo">📊<b>Hoja de cálculo</b></span>
+          </div>
+          <div class="registro">
+            <div class="tl">✓ Lunes 8:00 · 3 correos leídos</div>
+            <div class="tl">✓ Resumen escrito en 4 líneas</div>
+            <div class="tl">✓ Fila añadida a «Ventas 2026»</div>
+          </div>
+        </div>
+      </Ventana>
+    </Escritorio>
+  </Historia>
+
+  <section class="banda" aria-labelledby="prueba-t">
+    <div class="contenedor">
+      <h2 class="h2" id="prueba-t" set:html={t.prueba.titulo} data-reveal />
+      <div class="cifras" data-reveal="stagger">
+        {t.prueba.cifras.map(([n, e]) => <div><b>{n}</b><span>{e}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion contenedor" id="temario" aria-labelledby="temario-t">
+    <span class="eyebrow">{t.temario.ceja}</span>
+    <h2 class="h2" id="temario-t" set:html={t.temario.titulo} data-reveal />
+    <p class="texto resultado">{t.temario.resultado}</p>
+    <ol class="modulos" role="list" data-reveal="stagger">
+      {mods.map(([titulo, desc, sem, temas], i) => (
+        <li class="tarjeta dura modulo">
+          <span class="n">{i + 1}</span>
+          <div>
+            <span class="eyebrow">{sem} · clase {i + 1}</span>
+            <h3>{titulo}</h3>
+            <p>{desc}</p>
+            <ul role="list">{temas.map((x) => <li>{x}</li>)}</ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <a class="enlace silabo" href={ruta('/silabo.pdf')} download>{t.temario.silabo}</a>
+  </section>
+
+  <section class="seccion contenedor porque" aria-labelledby="porque-t">
+    <span class="eyebrow">{t.porque.ceja}</span>
+    <h2 class="h2" id="porque-t" set:html={t.porque.titulo} data-reveal />
+    <div class="puntos" data-reveal="stagger">
+      {t.porque.puntos.map(([h, p]) => <div><h3>{h}</h3><p>{p}</p></div>)}
+    </div>
+  </section>
+
+  <Faq lang={lang} titulo={t.faq.titulo} items={t.faq.items} />
+
+  <section class="final" aria-label={t.final.frase.replace(/<[^>]+>/g, '')}>
+    <Logo />
+    <p class="frase" set:html={t.final.frase} />
+    <a class="btn primary" href={rutaIdioma(lang, t.final.cta.href)}>{t.final.cta.texto}</a>
+    <p class="nota"><span class="dot"></span><span set:html={enlazar(t.heroe.nota, lang)} /></p>
+  </section>
+
+  <script>
+    import '../scripts/inicio.js';
+  </script>
+</Base>

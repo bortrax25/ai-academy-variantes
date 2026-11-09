@@ -1,0 +1,145 @@
+/* ───────── Estilos por página ─────────
+   Regla: el CSS describe el ESTADO FINAL legible. El JS de la historia pone los estados iniciales.
+   Así, sin JS o con movimiento reducido, todo se ve. */
+
+/* Logotipo con glifo animable (la metáfora). --lid 0→1 cierra el párpado/tapa. */
+.logo { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; letter-spacing: -0.06em; color: var(--ink); }
+.logo .bang { color: var(--accent); }
+.glifo {
+  position: relative; isolation: isolate; overflow: hidden; display: inline-flex; flex: none;
+  width: 0.56em; height: 0.56em; margin: 0 0.01em; border: 0.115em solid; border-radius: 50%;
+  translate: 0 0.02em; cursor: pointer; -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+}
+.glifo i {
+  position: absolute; top: 50%; left: 50%; width: 0.16em; height: 0.16em; border-radius: 50%;
+  background: var(--glifo-pupila, currentColor); transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out);
+}
+.glifo::before { content: ''; position: absolute; inset: -2px; z-index: 2; background: currentColor; transform: scaleY(var(--lid, 0)); transform-origin: 50% 0; }
+.pupilas-grandes .glifo i { width: 0.24em; height: 0.24em; }
+.logo-mini { font-size: 26px; }
+
+/* Héroe dentro de la historia */
+.historia { position: relative; height: var(--largo, 900svh); }
+.escenario { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.heroe {
+  position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: clamp(18px, 3.2svh, 34px); padding: 12svh var(--gutter) 0;
+}
+.heroe .logo { font-size: min(clamp(96px, 18vw, 300px), calc((100vw - 2 * var(--gutter)) / (var(--letras, 5) * 0.62))); line-height: 0.82; }
+.heroe .frase { font: 400 clamp(20px, 2.2vw, 30px) / 1.18 var(--font-sans); letter-spacing: -0.02em; }
+.leyendas { position: absolute; inset: max(7svh, 76px) 0 auto; z-index: 4; pointer-events: none; }
+.leyenda { position: absolute; inset: 0; padding: 0 16px; text-align: center; font: 400 clamp(20px, 2.1vw, 31px) / 1.18 var(--font-sans); letter-spacing: -0.02em; text-wrap: balance; }
+.leyenda span { display: block; margin-bottom: 14px; font: 500 11px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.js .leyenda { opacity: 0; }
+
+/* Historia estática (sin JS, movimiento reducido): todo apilado y visible */
+.is-static .historia { height: auto; }
+.is-static .escenario { position: relative; height: auto; overflow: visible; padding-bottom: 8svh; }
+.is-static .leyendas { position: relative; inset: auto; display: grid; gap: 28px; margin: 8svh auto 5svh; width: min(820px, 100% - 2 * var(--gutter)); }
+.is-static .leyenda { position: relative; opacity: 1; }
+.is-static .demo { position: relative; top: auto; }
+
+/* Final a pantalla completa */
+.final { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(22px, 4svh, 40px); text-align: center; padding: 12svh var(--gutter); }
+.final .logo { font-size: min(17vw, 30svh, calc((100vw - 2 * var(--gutter)) / (var(--letras, 5) * 0.62))); line-height: 0.82; }
+.final .frase { font: 400 clamp(30px, 4vw, 60px) / 1.08 var(--font-sans); letter-spacing: -0.04em; }
+
+/* Encabezado de página interior */
+.pagina { padding-top: clamp(110px, 18svh, 170px); }
+.cabecera { text-align: center; display: grid; gap: 14px; justify-items: center; margin-bottom: clamp(36px, 6svh, 64px); }
+.aviso { display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 13px; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--hair); }
+
+/* Precios */
+.planes { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 14px; align-items: stretch; max-width: calc(var(--n, 3) * 380px); margin-inline: auto; }
+.plan { position: relative; display: flex; flex-direction: column; gap: 18px; }
+.plan.destacado { border: 1.5px solid var(--accent); box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--accent) 60%, transparent); }
+.insignia { position: absolute; top: -11px; left: 18px; padding: 5px 9px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 600 10.5px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.plan h2 { font-size: 17px; letter-spacing: -0.01em; }
+.plan .sub { font-size: 13.5px; color: var(--ink-2); }
+.precio { display: flex; align-items: center; gap: 10px; }
+.precio b { font: 650 44px/1 var(--font-sans); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.precio small { font-size: 11.5px; line-height: 1.3; color: var(--ink-2); }
+.plan .btn { width: 100%; }
+.plan ul { display: grid; gap: 9px; padding-top: 18px; border-top: 1px solid var(--hair); margin-top: auto; }
+.incluye { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin: 14px auto 0; max-width: max(760px, calc(var(--n, 3) * 380px)); }
+.incluye ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; }
+@media (width <= 860px) { .planes, .incluye { grid-template-columns: 1fr; } .incluye ul { grid-template-columns: 1fr; } }
+
+/* Empezar */
+.paso-a-paso { display: grid; gap: 14px; }
+.paso-a-paso ol { display: grid; gap: 8px; padding-left: 20px; color: var(--ink-2); }
+
+/* Marca */
+.marca-hero .logo { font-size: min(clamp(80px, 14vw, 180px), calc((100vw - 2 * var(--gutter)) / (var(--letras, 5) * 0.62))); line-height: 0.85; }
+.bloque { padding-block: 44px; border-top: 1px solid var(--hair); display: grid; gap: 16px; }
+.lienzos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lienzo { display: grid; grid-template-rows: 1fr auto; min-height: 220px; border-radius: 14px; overflow: hidden; border: 1px solid var(--hair); }
+.lienzo .area { display: grid; place-items: center; font-size: min(clamp(48px, 7vw, 84px), calc(80vw / (var(--letras, 5) * 0.62))); }
+.lienzo.claro .area { background: #f3efe7; color: #161412; color-scheme: light; }
+.lienzo.oscuro .area { background: #121110; color: #ece6dc; color-scheme: dark; }
+.lienzo .pie { padding: 10px 14px; font-size: 12px; color: var(--ink-2); background: light-dark(#fffdf9, #1b1a18); }
+.colores { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.color { text-align: left; padding: 6px 6px 12px; border-radius: 14px; border: 1px solid var(--hair); background: light-dark(#fffdf9, #1b1a18); display: grid; gap: 4px; }
+.color .muestra { height: 84px; border-radius: 9px; border: 1px solid var(--hair); margin-bottom: 6px; }
+.color b { font-size: 13px; padding-inline: 6px; } .color small { font-size: 12px; color: var(--ink-2); padding-inline: 6px; }
+.color code { font-size: 11.5px; padding-inline: 6px; }
+.color.copiado code { color: var(--accent-ink); }
+@media (width <= 700px) { .lienzos { grid-template-columns: 1fr; } }
+
+/* Legal */
+.prosa { width: min(680px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+.prosa h2 { font-size: 20px; letter-spacing: -0.02em; margin: 36px 0 10px; }
+.prosa p { color: var(--ink-2); margin-bottom: 12px; }
+
+/* ── Identidad parametrizada: cada tema (src/temas/<id>/tema.css) solo cambia estas variables.
+   Los valores por defecto son los de stuut (AI Academy publicado). ── */
+:root {
+  --font-titulo: var(--font-serif); --peso-titulo: 800; --tracking-titulo: -0.035em; --caja-titulo: none;
+  --em-familia: var(--font-serif); --em-peso: 400; --em-estilo: italic; --em-color: inherit;
+  --logo-familia: var(--font-titulo); --logo-peso: 850; --logo-tracking: -0.045em;
+  --logo-b-estilo: italic; --logo-b-peso: 400; --glifo-color: var(--accent-ink); --glifo-angulo: -24deg; --glifo-grosor: 0.1em;
+  --fondo-pagina: none; --fondo-tamano: auto; --fondo-repetir: repeat; --marca-sobre: #fff;
+  --borde: 2px solid var(--ink); --sombra-tarjeta: var(--sombra-dura); --fondo-tarjeta: light-dark(#fffdf9, #151d42);
+  --radio-btn: 999px; --btn-borde: 2px solid var(--ink); --btn-sombra: 4px 4px 0 var(--accent); --btn-sombra-hover: 6px 6px 0 var(--accent);
+  --banda-fondo: var(--night); --banda-ink: #fff; --banda-linea: #ffffff40; --cifra-color: var(--accent);
+  --closer-fondo: var(--night); --closer-ink: #fff; --closer-sombra: 10px 10px 0 var(--accent);
+  --marca: #1740c8; --marca-suave: #e8edff; --marca-ink: #14286f; --destacado: var(--accent); --numero-color: var(--accent-ink);
+}
+body { background: var(--fondo-pagina) 0 0 / var(--fondo-tamano) var(--fondo-repetir), var(--paper); }
+em { font: var(--em-estilo) var(--em-peso) 1.16em/1 var(--em-familia); color: var(--em-color); }
+
+.logo { font-family: var(--logo-familia); font-weight: var(--logo-peso); letter-spacing: var(--logo-tracking); }
+.logo .glifo + span { font-style: var(--logo-b-estilo); font-weight: var(--logo-b-peso); }
+.glifo { border: 0; width: 0.3em; height: 0.78em; margin: 0 0.02em; translate: 0 0.08em; overflow: visible; -webkit-mask-image: none; cursor: pointer; }
+.glifo i { background: none; width: var(--glifo-grosor); height: 100%; top: 50%; left: 50%; transition: none; }
+.glifo i::after { content: ''; position: absolute; inset: 0; border-radius: 0.05em; background: currentColor; transform: rotate(var(--glifo-angulo)); }
+.heroe .glifo i::after, .final .glifo i::after, .marca-hero .glifo i::after { background: var(--glifo-color); }
+.glifo::before { inset: -0.05em -0.1em; background: var(--paper); transform-origin: 50% 100%; opacity: calc(var(--lid, 0) * 1); }
+.lienzo .glifo::before { background: transparent; }
+
+.h1, .h2, .heroe .frase, .final .frase, .closer h2, .leyenda, .puntos h3 { font-family: var(--font-titulo); text-transform: var(--caja-titulo); }
+.h1, .h2 { font-weight: var(--peso-titulo); letter-spacing: var(--tracking-titulo); }
+.h1 em, .h2 em, .frase em, .closer em, .leyenda em { font-size: 1em; }
+/* Sobre bandas oscuras la itálica hereda el color: el acento del tema casi nunca contrasta ahí */
+.banda em, .closer em { color: inherit; }
+.heroe .frase { font-weight: 600; letter-spacing: -0.03em; font-size: clamp(24px, 2.6vw, 38px); }
+.acciones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.heroe .nota, .final .nota { justify-content: center; }
+
+.btn { border-radius: var(--radio-btn); }
+.btn.primary { border: var(--btn-borde); box-shadow: var(--btn-sombra); }
+.btn.primary:hover { box-shadow: var(--btn-sombra-hover); }
+.btn.ghost { border: var(--btn-borde); box-shadow: none; }
+.tarjeta { background: var(--fondo-tarjeta); }
+.tarjeta.dura { border: var(--borde); box-shadow: var(--sombra-tarjeta); border-radius: var(--radio-tarjeta); }
+.plan.destacado { border: var(--borde); box-shadow: var(--sombra-tarjeta); }
+.precio b { font-family: var(--font-titulo); font-weight: var(--peso-titulo); }
+.inscripcion { display: grid; gap: 18px; }
+.pasos { display: grid; gap: 20px; }
+.pasos ol { display: grid; gap: 14px; padding: 0; }
+.pasos li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; }
+.num-paso { font: var(--peso-titulo) 22px/1 var(--font-titulo); color: var(--numero-color); }
+.pasos .btn { justify-self: start; }
+.banda { background: var(--banda-fondo); color: var(--banda-ink); }
+.closer { background: var(--closer-fondo); color: var(--closer-ink); border-color: transparent; box-shadow: var(--closer-sombra); }

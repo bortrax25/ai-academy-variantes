@@ -1,0 +1,47 @@
+/* Tema 01-throxy — Monoespaciada y pastel: bloques lila, menta y durazno con sombra dura. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import '@fontsource/ibm-plex-mono/400-italic.css';
+:root {
+  --font-sans: 'IBM Plex Mono', ui-monospace, monospace; --font-titulo: 'IBM Plex Mono', ui-monospace, monospace; --em-familia: 'IBM Plex Mono', ui-monospace, monospace; --font-serif: 'IBM Plex Mono', ui-monospace, monospace; --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --paper: light-dark(#f7f3ee, #141312);
+  --paper-2: light-dark(#efe8df, #1e1c1a);
+  --ink: light-dark(#1a1a1a, #efe9e0);
+  --ink-2: light-dark(#555555, #a9a196);
+  --accent: #9a82f0;
+  --on-accent: #1a1a1a;
+  --accent-ink: light-dark(#5b40c9, #b7a6ff);
+  --night: light-dark(#1a1a1a, #0a0a0a);
+  --marca: light-dark(#1a1a1a, #d7c9fa);
+  --marca-sobre: light-dark(#fff, #1a1a1a);
+  --marca-suave: light-dark(#ece5fd, #2a2440);
+  --marca-ink: light-dark(#2a1a66, #e6dcff);
+  --btn-top: light-dark(#2a2a2a, #f4efe8);
+  --btn-bottom: light-dark(#1a1a1a, #ddd5ca);
+  --btn-ink: light-dark(#fff, #1a1a1a);
+  --hair: light-dark(color-mix(in srgb, #1a1a1a 14%, transparent), color-mix(in srgb, #efe9e0 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#d7c9fa, #2a2440);
+  --demo-wall-2: light-dark(#d8f4cf, #1d2a22);
+  --demo-wall-3: light-dark(#f3e6cf, #141312);
+  --peso-titulo: 500;
+  --tracking-titulo: -0.03em;
+  --logo-peso: 600;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 600;
+  --logo-tracking: -0.05em;
+  --em-color: var(--accent-ink);
+  --borde: 1.5px solid var(--ink);
+  --sombra-tarjeta: 6px 6px 0 var(--ink);
+  --radio-tarjeta: 0;
+  --radio-btn: 0;
+  --btn-borde: 1.5px solid var(--ink);
+  --btn-sombra: 4px 4px 0 #9a82f0;
+  --btn-sombra-hover: 6px 6px 0 #9a82f0;
+  --cifra-color: #d8f4cf;
+  --closer-sombra: 10px 10px 0 #9a82f0;
+  --destacado: #d8f4cf;
+  --fondo-tarjeta: light-dark(#fff, #1c1a18);
+}
+body { font-size: 15px; } .leyenda, .heroe .frase { letter-spacing: -0.04em; } @media (width <= 480px) { .site-nav .btn.sm { padding: 0 10px; font-size: 12px; letter-spacing: -0.04em; } .site-brand .logo-mini { font-size: 21px; } }

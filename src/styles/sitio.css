@@ -1,0 +1,8 @@
+/* Entrada ÚNICA de estilos: el orden de la cascada es este y no depende de cómo Vite parta el CSS.
+   Base.astro y pages/og.astro importan solo este archivo. inicio.css va aparte (solo la home, carga después). */
+@import './fuentes.css';
+@import './tokens.css';
+@import './base.css';
+@import './componentes.css';
+@import './paginas.css';
+@import './demo.css';

@@ -1,0 +1,47 @@
+/* Tema 02-orange-slice — Paisaje ilustrado y cálido: colinas, sol, naranja y crema. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/nunito-sans';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Fraunces Variable', Georgia, serif; --em-familia: 'Fraunces Variable', Georgia, serif; --font-serif: 'Fraunces Variable', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#f6efe2, #1a140d);
+  --paper-2: light-dark(#ece2cf, #241c13);
+  --ink: light-dark(#2b2a22, #f1e9da);
+  --ink-2: light-dark(#6b6556, #b3a993);
+  --accent: light-dark(#e27a3a, #ef8c4d);
+  --on-accent: #26170b;
+  --accent-ink: light-dark(#a84a14, #f4a06a);
+  --night: light-dark(#3d4a2c, #2a331e);
+  --marca: light-dark(#c9601f, #ef8c4d);
+  --marca-sobre: light-dark(#fff, #26170b);
+  --marca-suave: light-dark(#fde6d4, #3a2414);
+  --marca-ink: light-dark(#5a2a0c, #fde6d4);
+  --btn-top: #ee9257;
+  --btn-bottom: #d96a26;
+  --btn-ink: #26170b;
+  --hair: light-dark(color-mix(in srgb, #2b2a22 14%, transparent), color-mix(in srgb, #f1e9da 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#cfe0e4, #22303a);
+  --demo-wall-2: light-dark(#9cbf7f, #1f2a17);
+  --demo-wall-3: light-dark(#c9601f, #3a1d08);
+  --peso-titulo: 600;
+  --tracking-titulo: -0.025em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --logo-tracking: -0.04em;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 20px 50px -24px rgba(40,30,10,.35);
+  --radio-tarjeta: 18px;
+  --btn-borde: 0;
+  --btn-sombra: 0 4px 14px rgba(0,0,0,.15);
+  --btn-sombra-hover: 0 8px 22px rgba(0,0,0,.2);
+  --banda-fondo: linear-gradient(180deg, #5f7d48, #8a5a2c);
+  --cifra-color: #ffd9b8;
+  --closer-fondo: linear-gradient(135deg, #5f7d48, #a8622c);
+  --closer-sombra: 0 20px 50px -20px rgba(40,30,10,.5);
+  --destacado: #ffd9b8;
+  --fondo-tarjeta: light-dark(#fffbf1, #221a11);
+}

@@ -1,0 +1,14 @@
+---
+// Panel flotante del producto (buscador / resultados / alertas) con tarjetas .t en el slot.
+const { clase = '', placeholder = 'Buscar', seccion = 'Hoy', pie = '', etiqueta = '' } = Astro.props;
+---
+<div class={`panel ${clase}`}>
+  <div class="busca">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <span class="q"></span><span class="caret" style="opacity:0"></span><span class="ph">{placeholder}</span>
+    {etiqueta && <span style="margin-left:auto;font-size:10.5px;padding:3px 7px;border-radius:6px;background:var(--demo-card)">{etiqueta}</span>}
+  </div>
+  {seccion && <div class="seccion-p">{seccion}</div>}
+  <div class="tarjetas"><slot /></div>
+  {pie && <div class="pie-p" set:html={pie} />}
+</div>

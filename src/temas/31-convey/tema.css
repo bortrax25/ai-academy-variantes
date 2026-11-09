@@ -1,0 +1,48 @@
+/* Tema 31-convey — Pastel en diagonal: menta a crema, verde azulado y un amarillo suave. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/nunito-sans';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'Fraunces Variable', Georgia, serif; --font-serif: 'Fraunces Variable', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#fbf9ef, #0c1414);
+  --paper-2: light-dark(#f1eedd, #132020);
+  --ink: light-dark(#10141f, #e8efee);
+  --ink-2: light-dark(#4a5566, #a2b1b0);
+  --accent: #f6e27a;
+  --on-accent: #10141f;
+  --accent-ink: light-dark(#2a6663, #a8e3d4);
+  --night: light-dark(#2f6f6c, #1e4a48);
+  --marca: light-dark(#2f6f6c, #4a8f8c);
+  --marca-sobre: #fff;
+  --marca-suave: light-dark(#dff0f2, #173030);
+  --marca-ink: light-dark(#1e3d3c, #dff0f2);
+  --btn-top: light-dark(#1c2433, #f8ea96);
+  --btn-bottom: light-dark(#10141f, #f0d95a);
+  --btn-ink: light-dark(#fff, #10141f);
+  --hair: light-dark(color-mix(in srgb, #10141f 14%, transparent), color-mix(in srgb, #e8efee 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#dff0f2, #1a3333);
+  --demo-wall-2: light-dark(#a8e3d4, #112424);
+  --demo-wall-3: light-dark(#4a8f8c, #071010);
+  --peso-titulo: 700;
+  --tracking-titulo: -0.03em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 8px 30px rgba(20,30,60,.08);
+  --radio-tarjeta: 18px;
+  --btn-borde: 0;
+  --btn-sombra: 0 8px 24px -10px rgba(20,30,60,.4);
+  --btn-sombra-hover: 0 12px 30px -10px rgba(20,30,60,.5);
+  --cifra-color: #f6e27a;
+  --closer-fondo: linear-gradient(135deg, #2f6f6c, #3f7f7c);
+  --closer-sombra: 0 20px 50px rgba(20,30,60,.18);
+  --destacado: #a8e3d4;
+  --fondo-pagina: linear-gradient(160deg, light-dark(#dff0f2, #102222) 0%, light-dark(#f4f1dc, #141a14) 30%, light-dark(#fbf9ef, #0c1414) 60%);
+  --fondo-tamano: 100% 1400px;
+  --fondo-repetir: no-repeat;
+  --fondo-tarjeta: light-dark(#fff, #111c1c);
+}

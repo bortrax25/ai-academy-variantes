@@ -1,0 +1,46 @@
+/* Tema 24-zaymo — Lima y negro: fondo hueso, un verde lima que grita, nada más. (generado por src/temas/generar.py: edítalo ahí) */
+@import '@fontsource-variable/inter';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --font-titulo: 'Inter Variable', ui-sans-serif, system-ui, sans-serif; --em-familia: 'Instrument Serif', Georgia, serif; --font-serif: 'Instrument Serif', Georgia, serif; --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --paper: light-dark(#fbfaf7, #111110);
+  --paper-2: light-dark(#f1efe8, #1b1b19);
+  --ink: light-dark(#161616, #efeee9);
+  --ink-2: light-dark(#555555, #a3a29c);
+  --accent: #e7f66a;
+  --on-accent: #161616;
+  --accent-ink: light-dark(#161616, #e7f66a);
+  --night: light-dark(#1c1c1c, #000000);
+  --marca: light-dark(#1c1c1c, #e7f66a);
+  --marca-sobre: light-dark(#fff, #161616);
+  --marca-suave: light-dark(#f4f9cc, #2a2a20);
+  --marca-ink: light-dark(#161616, #f4f9cc);
+  --btn-top: light-dark(#2a2a2a, #eef98a);
+  --btn-bottom: light-dark(#161616, #e7f66a);
+  --btn-ink: light-dark(#fff, #161616);
+  --hair: light-dark(color-mix(in srgb, #161616 14%, transparent), color-mix(in srgb, #efeee9 15%, transparent));
+  --sombra-dura: 6px 6px 0 var(--ink);
+  --demo-wall-1: light-dark(#fbfaf7, #2a2a20);
+  --demo-wall-2: light-dark(#e7f66a, #1b1b16);
+  --demo-wall-3: light-dark(#c9c38f, #0a0a08);
+  --peso-titulo: 650;
+  --tracking-titulo: -0.045em;
+  --logo-familia: var(--font-sans);
+  --logo-peso: 800;
+  --logo-b-estilo: normal;
+  --logo-b-peso: 800;
+  --borde: 1px solid var(--hair);
+  --sombra-tarjeta: 0 4px 18px rgba(0,0,0,.08);
+  --radio-tarjeta: 22px;
+  --radio-btn: 6px;
+  --btn-borde: 0;
+  --btn-sombra: none;
+  --btn-sombra-hover: 0 0 0 3px #e7f66a;
+  --cifra-color: #e7f66a;
+  --closer-sombra: 0 30px 60px -30px rgba(120,100,40,.4);
+  --destacado: #e7f66a;
+  --fondo-tarjeta: light-dark(#fff, #191917);
+}
+.h1 em, .h2 em { background: var(--accent); color: #161616; padding: 0 .12em; border-radius: 6px; } .banda .h2 em, .closer em { background: none; color: var(--accent); }

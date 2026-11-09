@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Closer from '../components/Closer.astro';
+import { textos } from '../lib/textos.js';
+import { rutaIdioma } from '../lib/ruta.js';
+const { lang } = Astro.props;
+const p = textos(lang).precios;
+---
+<Base lang={lang} meta={p.meta} camino="/precio">
+  <div class="pagina contenedor">
+    <header class="cabecera">
+      <h1 class="h1" set:html={p.titulo} data-reveal />
+      <p class="texto" set:html={p.lead} />
+      {p.aviso && <span class="aviso"><span class="dot"></span>{p.aviso}</span>}
+    </header>
+    <div class="planes" data-reveal="stagger" style={`--n:${p.planes.length}`}>
+      {p.planes.map((pl) => (
+        <article class={`tarjeta plan ${pl.destacado ? 'destacado' : ''}`}>
+          {pl.insignia && <span class="insignia">{pl.insignia}</span>}
+          <div><h2>{pl.nombre}</h2><p class="sub">{pl.sub}</p></div>
+          <p class="precio"><b>{pl.precio}</b><small set:html={pl.nota} /></p>
+          <a class={`btn ${pl.destacado ? 'primary' : 'ghost'}`} href={rutaIdioma(lang, pl.cta.href)}>{pl.cta.texto}</a>
+          <ul role="list">{pl.items.map((i) => <li class={`check ${pl.destacado ? 'acento' : ''}`}>{i}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+    <section class="tarjeta incluye" data-reveal>
+      <div><h2 class="h3">{p.incluye.titulo}</h2><p class="texto" style="font-size:14px">{p.incluye.texto}</p></div>
+      <ul role="list">{p.incluye.items.map((i) => <li class="check">{i}</li>)}</ul>
+    </section>
+  </div>
+  <Faq lang={lang} titulo={textos(lang).faq.titulo} items={p.faq} id="faq-precios" />
+  <Closer lang={lang} titulo={p.closer.titulo} cta={p.closer.cta} />
+</Base>

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { textos } from '../lib/textos.js';
+const { lang, doc } = Astro.props; // doc: 'privacidad' | 'terminos' | otra clave de contenido.legal
+const d = textos(lang).legal[doc];
+---
+<Base lang={lang} meta={d.meta} camino={`/${doc}`}>
+  <article class="pagina prosa">
+    <h1 class="h1" style="font-size:clamp(36px,5vw,56px)">{d.titulo}</h1>
+    <p class="eyebrow" style="margin:14px 0 8px">{d.actualizado}</p>
+    {d.secciones.map((s) => (<><h2>{s.h}</h2>{s.p.map((x) => <p set:html={x} />)}</>))}
+  </article>
+</Base>

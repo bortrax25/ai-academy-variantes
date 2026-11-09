@@ -1,0 +1,32 @@
+---
+// /inscribirme: el flujo real del embudo — WhatsApp → Yape → correo con Meet, sílabo y práctica.
+import Base from '../layouts/Base.astro';
+import { textos } from '../lib/textos.js';
+import { enlazar } from '../lib/ruta.js';
+import { sitio } from '../sitio.js';
+const { lang } = Astro.props;
+const e = textos(lang).empezar;
+const msg = encodeURIComponent(e.mensaje);
+const destino = sitio.whatsapp
+  ? { href: `https://wa.me/${sitio.whatsapp}?text=${msg}`, texto: e.boton.texto }
+  : { href: `mailto:${sitio.contacto}?subject=${msg}`, texto: e.boton.textoCorreo };
+---
+<Base lang={lang} meta={e.meta} camino="/inscribirme">
+  <div class="pagina estrecho inscripcion">
+    <header style="display:grid;gap:10px">
+      <h1 class="h1">{e.titulo}</h1>
+      <p class="texto">{e.sub}</p>
+      {e.aviso && <span class="aviso" style="justify-self:start"><span class="dot"></span>{e.aviso}</span>}
+    </header>
+    <section class="tarjeta dura pasos" data-reveal>
+      <ol role="list">
+        {e.pasos.map((p, i) => <li><span class="num-paso">0{i + 1}</span><span>{p}</span></li>)}
+      </ol>
+      <a class="btn primary" href={destino.href} rel="noopener">{destino.texto}</a>
+    </section>
+    <section class="tarjeta" data-reveal style="display:grid;gap:8px">
+      <h2 class="h3">{e.extra.titulo}</h2><p class="texto">{e.extra.texto}</p>
+    </section>
+    <p class="texto" set:html={enlazar(e.ayuda, lang)} />
+  </div>
+</Base>

@@ -1,0 +1,20 @@
+---
+// Logotipo tipográfico con glifos animables. `texto` usa ○ para cada glifo y un "!" final en color acento.
+// Ej.: "far○" → far(o) · "○jit○!" → (o)jit(o)!  El dibujo del glifo está en paginas.css (.glifo).
+import { marca } from '../marca.js';
+interface Props { texto?: string; clase?: string }
+const { texto = marca.texto, clase = '' } = Astro.props;
+const bang = texto.endsWith('!');
+const partes = (bang ? texto.slice(0, -1) : texto).split('○');
+// Ancho aproximado en letras: el tamaño del logotipo grande se ajusta para que nunca se salga de la pantalla.
+const letras = texto.replace(/○/g, '').length + (texto.match(/○/g) || []).length * 0.5;
+---
+<span class={`logo ${clase}`} role="img" aria-label={marca.etiqueta} style={`--letras:${letras}`}>
+  {partes.map((p, i) => (
+    <>
+      {p && <span aria-hidden="true">{p}</span>}
+      {i < partes.length - 1 && <span class="glifo" aria-hidden="true"><i></i></span>}
+    </>
+  ))}
+  {bang && <span class="bang" aria-hidden="true">!</span>}
+</span>

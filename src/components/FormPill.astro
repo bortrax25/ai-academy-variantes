@@ -1,0 +1,16 @@
+---
+import { textos } from '../lib/textos.js';
+import { enlazar } from '../lib/ruta.js';
+import { sitio } from '../sitio.js';
+const { lang, id = 'email' } = Astro.props;
+const t = textos(lang).form;
+---
+<form class="form-pill" data-form data-endpoint={sitio.formulario.endpoint} data-contacto={sitio.contacto}>
+  <div class="form-row">
+    <label class="sr" for={id}>{t.etiqueta}</label>
+    <input id={id} name="email" type="email" required autocomplete="email" placeholder={t.placeholder} />
+    <button class="btn primary" type="submit"><span>{t.boton}</span></button>
+  </div>
+  <p class="nota"><span class="dot"></span><span set:html={enlazar(t.nota, lang)} /></p>
+  <p class="form-msg" role="status" aria-live="polite"></p>
+</form>

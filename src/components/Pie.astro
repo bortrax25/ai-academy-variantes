@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import { textos } from '../lib/textos.js';
+import { rutaIdioma } from '../lib/ruta.js';
+import { sitio } from '../sitio.js';
+const { lang, camino = '/' } = Astro.props;
+const t = textos(lang);
+const anio = new Date().getFullYear();
+---
+<footer class="site-foot">
+  <div class="cols">
+    {t.pie.columnas.map((c) => (
+      <div>
+        <h3>{c.titulo}</h3>
+        {c.enlaces.map((e) => <a href={rutaIdioma(lang, e.href)}>{e.texto}</a>)}
+      </div>
+    ))}
+  </div>
+  <div class="base">
+    <div class="marca">
+      <a href={rutaIdioma(lang, '/')} style="text-decoration:none"><Logo clase="logo-mini" /></a>
+      <span class="estado"><span class="dot"></span>{t.pie.estado}</span>
+    </div>
+    <nav aria-label="Legal">
+      {t.pie.legal.map((e) => <a href={rutaIdioma(lang, e.href)}>{e.texto}</a>)}
+      {sitio.idiomas.length > 1 && (
+        <span class="idiomas" role="group" aria-label={t.pie.idioma}>
+          {sitio.idiomas.map((l) => <a href={rutaIdioma(l, camino)} hreflang={l} aria-current={l === lang ? 'true' : undefined}>{l.toUpperCase()}</a>)}
+        </span>
+      )}
+      {sitio.github && <a href={sitio.github} aria-label="GitHub">GitHub</a>}
+    </nav>
+    <span>© {anio} {sitio.empresa}</span>
+  </div>
+</footer>
